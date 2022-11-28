@@ -5,7 +5,7 @@ import "../src/styles/App.css";
 import Header from "./components/Header";
 import CoinPage from "./Pages/CoinPage";
 import Homepage from "./Pages/Homepage";
-
+import Alert from "./components/Alert";
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
+      <Alert />
     </StyledEngineProvider>
   );
 }
