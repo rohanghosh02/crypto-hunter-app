@@ -1,4 +1,5 @@
 [[redirects]]
   from = "/*"
   to = "/"
+  to="/coins/:id"
   status = 200
