@@ -1,56 +1,185 @@
-*,*::after{
-  box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap");
 
-body{
+* {
   margin: 0;
-  background: linear-gradient(to right, #00AAFF, #00FF6C);
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-.calculator-grid{
-  display: grid;
-  margin-top: 2rem;
+a {
+  text-decoration: none;
+  color: gold;
+}
+.main {
+  background-color: #14161a;
+  color: white;
+  min-height: 100vh;
+}
+.banner {
+  background-image: url(../../public/banner2.jpg);
+}
+.tagline {
+  display: flex;
+  height: 40%;
+  flex-direction: column;
   justify-content: center;
-  grid-template-columns: repeat(4,6rem);
-  grid-template-rows: minmax(7rem,auto) repeat(5,6rem);
+  text-align: center;
 }
 
-.calculator-grid > button{
-  cursor: pointer;
-  font-size: 2rem;
-  border: 1px solid white;
-  outline: none;
-  background-color: rgba(255,255,255,.75);
+.carousel {
+  height: 50%;
+  display: flex;
+  align-items: center;
 }
-
-.calculator-grid > button:hover,
-.calculator-grid > button:focus{
-  background-color: rgba(255,255,255,.9);
-
-}
-
-.span-two{
-  grid-column: span 2;
-}
-.output{
-  grid-column: 1/ -1;
-  background-color: rgba(0, 0, 0, .75);
+.carouselItem {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: white;
+}
+
+.MuiPaginationItem-root {
+  color: gold;
+}
+
+/* single coin page css */
+
+.coinPage__Container {
+  display: flex;
+}
+
+.sidebar {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25;
+  border-right: 2px solid gray;
+}
+.heading {
+  font-weight: bold;
+  margin-bottom: 20;
+  font-family: Montserrat;
+}
+
+.marketData {
+  align-self: start;
+  padding: 25px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+/* CoinInfo Component */
+
+.coinInfo__Container {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25;
+  padding: 40;
+}
+
+.chartBtn {
+  display: flex;
+  margin-top: 20px;
   justify-content: space-around;
-  padding: .75rem;
-  word-wrap: break-word;
-  word-break: break-all;
-  
-
+  width: 100%;
 }
 
-.output .previous-operand {
-  color: rgba(255,255,255,.75);
-  font-size: 1.5rem;
+.selectBtn,
+.selectedBtn {
+  border: 1px solid gold;
+  border-radius: 5px;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: Montserrat;
+  cursor: pointer;
+  font-weight: 500;
+  width: 20%;
+  margin: 10px;
 }
-.output .current-operand {
-  color:white;
-  font-size: 2.5rem
+.selectBtn:hover {
+  background-color: gold;
+  color: black;
+}
+.selectedBtn {
+  background-color: gold;
+  font-weight: 700;
+  color: black;
+}
+
+/* Media Quires */
+
+@media screen and (min-width: 1200px) {
+  .css-ag7rrr-MuiTypography-root {
+    font-size: 1.3rem;
+  }
+}
+
+/* lg, large: 1200px */
+@media screen and (max-width: 1200px) {
+  .coinPage__Container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .css-1p4nksj-MuiTypography-root {
+    text-align: center;
+  }
+  .sidebar {
+    width: 100%;
+  }
+
+  .marketData {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+/* md, medium: 900px */
+@media screen and (max-width: 820px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  .marketData {
+    flex-direction: column;
+    align-items: center;
+  }
+  .coinInfo__Container {
+    width: 100%;
+    margin-top: 0;
+    padding: 20;
+    padding-top: 0;
+  }
+}
+/* sm, small: 600px */
+@media screen and (max-width: 400px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  .marketData {
+    align-items: start;
+  }
+  .css-ag7rrr-MuiTypography-root {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 300px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  .marketData {
+    align-items: start;
+  }
+  .css-ag7rrr-MuiTypography-root {
+    font-size: 1rem;
+  }
 }

@@ -1,53 +1,25 @@
-import React ,{useReducer}from 'react'
+import { StyledEngineProvider } from "@mui/material";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../src/styles/App.css";
-const ACTIONS = {
-  ADD_DIGIT: 'add-digit',
-  CLEAR: 'clear',
-  DELETE_DIGIT:'delete-digit',
-  CHOOSE_OPERATION:'choose-operation',
-  EVALUATE:'evaluate'
+import Header from "./components/Header";
+import CoinPage from "./Pages/CoinPage";
+import Homepage from "./Pages/Homepage";
 
-}
 
-function reducer(state,{type,payload}){
-  switch(type){
-    case ACTIONS.ADD_DIGIT:
-      return {
-        ...state,
-        currentOperand:`${currentOperand}`
-      }
-  }
-
-}
 function App() {
-
-
-  const [{previousOperand,currentOperand,operation}, dispatch] = useReducer(reducer,{});
   return (
-    <div className="calculator-grid">
-      <div className="output">
-        <div className="previous-operand">{previousOperand}{operation}</div>
-        <div className="current-operand">{currentOperand}</div>
+    <StyledEngineProvider injectFirst>
+      <div className="main">
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route exact path="/" element={<Homepage />} />
+            <Route path="/coins/:id" element={<CoinPage />} />
+          </Routes>
+        </BrowserRouter>
       </div>
-      <button className="span-two">AC</button>
-      <button>DEL</button>
-      <button>÷</button>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>*</button>
-      <button>4</button>
-      <button>5</button>
-      <button>6</button>
-      <button>+</button>
-      <button>7</button>
-      <button>8</button>
-      <button>9</button>
-      <button>-</button>
-      <button>.</button>
-      <button>0</button>
-      <button className="span-two">=</button>
-    </div>
+    </StyledEngineProvider>
   );
 }
 
