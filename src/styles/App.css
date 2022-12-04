@@ -131,13 +131,19 @@ a {
   .css-1p4nksj-MuiTypography-root {
     text-align: center;
   }
+  .css-1ditdau-MuiButtonBase-root-MuiButton-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .sidebar {
     width: 100%;
   }
 
   .marketData {
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
   }
 }
 
